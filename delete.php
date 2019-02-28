@@ -1,22 +1,16 @@
 <?php
 include './functions.php';
-$msg="";
 $all_students = get_all_students();
 if(isset($_GET['std_del'])){
  $std_delete = $_GET['std_del']  ; 
 $std_del =  get_std_by_id_delete($std_delete);
-if($std_del){
-        $msg= 'delete done' ;
-    } 
-    else {
-         $msg= 'delete failed' ;
-    }
+
+    
     
     
 }
+
 ?>
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,13 +20,8 @@ if($std_del){
         
     </head>
     <body>
-                          
+        
     <center>
-            <?php 
-                                if($msg){
-                                    echo '<h3>'.$msg.'</h3>';
-                                }
-                                ?>
         <h1>Students List</h1>
         <table class="table">
            
@@ -51,7 +40,7 @@ if($std_del){
                 <th>section</th>
                 <th>image</th>
                 <th colspan="2">Edit</th>
-                 <th>Delete</th>
+                <th>Delete</th>
             </tr>
             <?php
             if(count($all_students)>0){
@@ -76,9 +65,9 @@ if($std_del){
                 <td><?php echo $ses_info['ses_duration']; ?></td>
                 <td><?php echo $sem_info['sem_name']; ?></td>
                 <td><?php echo $sec_info['sec_name']; ?></td>
-                <td><?php echo "<img src = 'image/".$std['image']."' height=80px width=80px />"; ?></td>
-                <td><a href="student_edit.php?updt_id=<?php echo $std['id']; ?>">Get Edit</a> </td>          
-                <td>
+            <td><?php echo "<img src = 'image/".$std['image']."' height=80px width=80px />"; ?></td>
+            <td><a href="student_edit.php?updt_id=<?php echo $std['id']; ?>">Get Edit</a> </td>          
+            <td>
                 <form action="student_post_edit.php" method="post">
                     <input type="hidden" value="<?php echo $std['id']; ?>" name="updt_id"/>
                     <input type="submit" value="post edit"/>
@@ -86,7 +75,8 @@ if($std_del){
                     
                 </form>
             </td>
-            <td><a href="student_list.php?std_del=<?php echo $std['id'];?>">delete</a></td>  
+            <td><a href="delete.php?std_del=<?php echo $std['id'];?>">delete</a></td>
+               
             
             </tr>
            
@@ -97,7 +87,7 @@ if($std_del){
             <?php } ?>
              
         </table>
-         <a href="std_count.php?std_c_id=<?php echo $std['id']; ?>">student count</a>
+        <a href="std_count.php?std_c_id=<?php echo $std['id']; ?>">student count</a>
     </center>
                 
     </body>
