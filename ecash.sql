@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2019 at 02:40 PM
+-- Generation Time: Apr 26, 2019 at 03:47 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -126,28 +126,6 @@ INSERT INTO `libsys_books` (`b_id`, `b_code`, `b_name`, `b_author`, `b_publishar
 (5, '132', 'DISCRETE MATH', 2, 3, 23, 60, 25, '180.00', 1),
 (6, '140', 'DATABASE', 4, 1, 41, 44, 23, '130.00', 1),
 (7, '180', 'JAVA PRO', 4, 2, 42, 100, 15, '240.00', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `libsys_books_category`
---
-
-CREATE TABLE `libsys_books_category` (
-  `bc_id` int(11) NOT NULL,
-  `bc_name` varchar(255) NOT NULL,
-  `bc_status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `libsys_books_category`
---
-
-INSERT INTO `libsys_books_category` (`bc_id`, `bc_name`, `bc_status`) VALUES
-(1, 'PHP', 1),
-(2, 'WP', 1),
-(3, 'JAVA', 1),
-(4, 'ALGORITHM', 1);
 
 -- --------------------------------------------------------
 
@@ -310,13 +288,6 @@ ALTER TABLE `libsys_books`
   ADD UNIQUE KEY `b_check` (`b_check`);
 
 --
--- Indexes for table `libsys_books_category`
---
-ALTER TABLE `libsys_books_category`
-  ADD PRIMARY KEY (`bc_id`),
-  ADD UNIQUE KEY `bc_name` (`bc_name`);
-
---
 -- Indexes for table `libsys_departments`
 --
 ALTER TABLE `libsys_departments`
@@ -376,11 +347,6 @@ ALTER TABLE `libsys_author`
 --
 ALTER TABLE `libsys_books`
   MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `libsys_books_category`
---
-ALTER TABLE `libsys_books_category`
-  MODIFY `bc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `libsys_departments`
 --
