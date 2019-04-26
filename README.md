@@ -1,2 +1,2 @@
 # Online-Library-System
-While run this project,pls connect it to internet
+While run this project,please connect it to internet.
